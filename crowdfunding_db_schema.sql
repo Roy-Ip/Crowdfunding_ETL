@@ -1,3 +1,5 @@
+
+-- Creating "champaign" table
 CREATE TABLE "champaign" (
     "cf_id" INTEGER   NOT NULL,
     "contact_id" INTEGER   NOT NULL,
@@ -18,6 +20,7 @@ CREATE TABLE "champaign" (
      )
 );
 
+-- Creating "category" table
 CREATE TABLE "category" (
     "category_id" VARCHAR(30)   NOT NULL,
     "category" VARCHAR(30)   NOT NULL,
@@ -26,6 +29,7 @@ CREATE TABLE "category" (
      )
 );
 
+-- Creating "subcategory" table
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR(30)   NOT NULL,
     "subcategory" VARCHAR(30)   NOT NULL,
@@ -34,6 +38,7 @@ CREATE TABLE "subcategory" (
      )
 );
 
+-- Creating "contacts" table
 CREATE TABLE "contacts" (
     "contact_id" INTEGER   NOT NULL,
     "first_name" VARCHAR(30)   NOT NULL,
@@ -44,7 +49,7 @@ CREATE TABLE "contacts" (
      )
 );
 
-
+-- Altering "champaign" table to add foreign keys
 ALTER TABLE "champaign" ADD CONSTRAINT "fk_champaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "contacts" ("contact_id");
 
@@ -55,6 +60,7 @@ ALTER TABLE "champaign" ADD CONSTRAINT "fk_champaign_subcategory_id" FOREIGN KEY
 REFERENCES "subcategory" ("subcategory_id");
 
 
+-- Selecting each of the tables and verifying that each table has the correct data.
 SELECT*FROM "champaign"
 SELECT*FROM "category"
 SELECT*FROM "subcategory"
